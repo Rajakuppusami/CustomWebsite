@@ -1,0 +1,62 @@
+<div class="container">
+    <p [style.fontFamily]="this.fontFamilySelected" [style.fontStyle]="isItalic ? 'italic' : 'normal'"
+        [style.textDecoration]="isDecoration ? 'underline' : 'none'" [style.fontWeight]="isBold ? 'bold' : 'normal'"
+        [style.fontSize]="this.fontSizeSelected" [style.textAlign]="this.alignSelected"
+        [style.color]="this.colorSelected">
+        {{text}}</p>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="d-inline">
+            <mat-form-field appearance="fill">
+                <mat-label>Select FontFamily</mat-label>
+                <mat-select [(value)]="this.fontFamilySelected">
+                    <mat-option>None</mat-option>
+                    <mat-option *ngFor="let selectValue of this.fontFamilySelectModel" [value]="selectValue.name"
+                        [style.fontFamily]="selectValue.viewName">
+                        {{selectValue.viewName}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="d-inline">
+            <mat-form-field appearance="fill">
+                <mat-label>Select FontSize</mat-label>
+                <mat-select [(value)]="this.fontSizeSelected">
+                    <mat-option *ngFor="let selectValue of this.fontSizeSelectModel"
+                        [value]="selectValue.fontSizeValue">
+                        {{selectValue.fontSizeViewValue}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="d-inline">
+            <mat-form-field appearance="fill">
+                <mat-label>Select Alignment</mat-label>
+                <mat-select [(value)]="this.alignSelected">
+                    <mat-option *ngFor="let selectValue of aligmentEnum.values()" [value]="selectValue">
+                        {{selectValue | uppercase }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="d-inline">
+            <button mat-button class="buttom-icon" matTooltip="Bold" (click)="toggleBold($event)"
+                [ngClass]="isBold ? 'active':''"><b>B</b></button>
+            <button mat-button class="buttom-icon" matTooltip="Italic" style="font-style:italic;"
+                (click)="toggleItalic($event)" [ngClass]="isItalic ? 'active':''">I</button>
+            <button mat-button class="buttom-icon" matTooltip="Underline" style="text-decoration: underline;"
+                (click)="toggleDecoration($event)" [ngClass]="isDecoration ? 'active':''">U</button>
+        </div>
+        <div class="d-inline">
+            <input type="color" class="buttom-icon color-picker" [(ngModel)]="this.colorSelected" name="color"
+                matTooltip="Choose your color">
+        </div>
+    </div>
+    <div class="row">
+        <form class="w-100">
+            <mat-form-field class="w-100">
+                <mat-label>Text</mat-label>
+                <input type="text" matInput placeholder="Heading" [(ngModel)]="this.text" name="heading">
+            </mat-form-field>
+        </form>
+    </div>
+</div>

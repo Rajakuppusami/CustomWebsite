@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { CardGridColumnSelect, CardGridModel } from './model/card-grid.model';
+import { MatDialog } from '@angular/material/dialog';
+import { CardGridColumnSelect, CardGridModel} from './model/card-grid.model';
+import { TextStyleEditorDialogComponent } from './text-style-editor-dialog/text-style-editor-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -16,22 +18,30 @@ export class AppComponent implements OnInit {
     { value: 3, valueView: "Grid-3" },
     { value: 4, valueView: "Grid-4" }
   ]
+  columnSelected: number;
 
-  selected: number;
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.httpClient.get<CardGridModel>("./assets/json/card-grid.json").subscribe(data => {
       this.cardGridModel = data;
-      this.selected = data.column;
+      this.columnSelected = data.column;
     });
   }
 
   modifyGridValue(): void {
-    console.log("OnChange Event Value : " + this.selected);
+    console.log("OnChange Event Value : " + this.columnSelected);
     let updatedCardGridModel = Object.create(this.cardGridModel);
-    updatedCardGridModel.column = this.selected;
+    updatedCardGridModel.column = this.columnSelected;
     this.cardGridModel = updatedCardGridModel;
+  }
+
+  openDialog() :void {
+    const dialogRef = this.dialog.open(TextStyleEditorDialogComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 }

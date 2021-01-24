@@ -8,19 +8,25 @@ import { AngularMaterialModule } from './material-ui/material-ui.module';
 import { CardGridBuilderComponent } from './card-grid-builder/card-grid-builder.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CardStyleComponent } from './card-style/card-style.component';
+import { FormsModule } from '@angular/forms';
+import { TextStyleEditorComponent } from './text-style-editor/text-style-editor.component';
+import { TextStyleEditorDialogComponent } from './text-style-editor-dialog/text-style-editor-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardGridBuilderComponent,
-    CardStyleComponent
+    CardStyleComponent,
+    TextStyleEditorComponent,
+    TextStyleEditorDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

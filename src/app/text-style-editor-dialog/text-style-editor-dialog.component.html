@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Text Style Editor</h2>
+<mat-dialog-content>
+    <app-text-style-editor></app-text-style-editor>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click)="log()" [mat-dialog-close]="true" cdkFocusInitial>Save</button>
+</mat-dialog-actions>

@@ -1,0 +1,17 @@
+[
+    { "name": "Arial", "viewName": "Arial" },
+    { "name": "Arial Black", "viewName": "Arial Black" },
+    { "name": "Calibri", "viewName": "Calibri (Body)" },
+    { "name": "Calibri Light", "viewName": "Calibri Light" },
+    { "name": "Cambria", "viewName": "Cambria" },
+    { "name": "Candara", "viewName": "Candara" },
+    { "name": "Comic Sans MS", "viewName": "Comic Sans MS" },
+    { "name": "Consolas", "viewName": "Consolas" },
+    { "name": "Constantia", "viewName": "Constantia" },
+    { "name": "Corbel", "viewName": "Corbel" },
+    { "name": "Courier New", "viewName": "Courier New" },
+    { "name": "Franklin Gothic Medium", "viewName": "Franklin Gothic Medium" },
+    { "name": "Georgia", "viewName": "Georgia" },
+    { "name": "Lucida Sans Unicode", "viewName": "Lucida Sans Unicode" }
+
+]

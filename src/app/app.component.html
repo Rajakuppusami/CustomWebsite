@@ -4,22 +4,21 @@
   </div>
   <div>
     <mat-form-field appearance="fill">
-      <mat-label>Select an option</mat-label>
-      <mat-select [(value)]="this.selected" (selectionChange)="modifyGridValue()">
+      <mat-label>Select Grid</mat-label>
+      <mat-select [(value)]="this.columnSelected" (selectionChange)="modifyGridValue()">
         <mat-option>None</mat-option>
         <mat-option *ngFor="let selectValue of this.cardGridColumnSelect" [value]="selectValue.value">
           {{selectValue.valueView}}</mat-option>
       </mat-select>
     </mat-form-field>
+    <p>selected value : {{this.cardGridModel.column}}</p>
   </div>
-  <p>selected value : {{this.cardGridModel.column}}</p>
+  <button mat-button (click)="openDialog()">Open Text Editor</button>
 </div>
-
-
+<app-card-grid-builder *ngIf="this.cardGridModel" [cardGridModel]="this.cardGridModel" [cardTemplate]="childTemplate">
+</app-card-grid-builder>
 <ng-template #childTemplate let-text="text">
   <!-- define  text object use let keyword -->
   <app-card-style [data]="text"></app-card-style>
 </ng-template>
 
-<app-card-grid-builder *ngIf="this.cardGridModel" [cardGridModel]="this.cardGridModel" [cardTemplate]="childTemplate">
-</app-card-grid-builder>
