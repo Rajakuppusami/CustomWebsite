@@ -2,5 +2,24 @@
   <div class="alert alert-primary" role="alert">
     <h1>Welcome to custom website design</h1>
   </div>
-  <mat-slider min="1" max="100" step="1" value="1"></mat-slider>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Select an option</mat-label>
+      <mat-select [(value)]="this.selected" (selectionChange)="modifyGridValue()">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let selectValue of this.cardGridColumnSelect" [value]="selectValue.value">
+          {{selectValue.valueView}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <p>selected value : {{this.cardGridModel.column}}</p>
 </div>
+
+
+<ng-template #childTemplate let-text="text">
+  <!-- define  text object use let keyword -->
+  <app-card-style [data]="text"></app-card-style>
+</ng-template>
+
+<app-card-grid-builder *ngIf="this.cardGridModel" [cardGridModel]="this.cardGridModel" [cardTemplate]="childTemplate">
+</app-card-grid-builder>

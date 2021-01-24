@@ -1,0 +1,15 @@
+<div class="container mt-3">
+    <div class="row ">
+        <div class="col-md text-center">
+            <h1>{{data.title}}</h1>
+        </div>
+    </div>
+    <div class="row p-3">
+        <div class="border bg-light p-3 mb-2" [class]="this.data.columnClass" *ngFor="let value of data.cardDetails">
+            <ng-container [ngTemplateOutlet]="cardTemplate" [ngTemplateOutletContext]="value">
+                <!-- ng template outlet loads the ng template which pass as input to this component.. -->
+                <!-- ng template outlext context used to pass data from ng container to ng template.. -->
+            </ng-container>
+        </div>
+    </div>
+</div>
