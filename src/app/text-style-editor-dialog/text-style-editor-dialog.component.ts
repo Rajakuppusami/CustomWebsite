@@ -1,4 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { TextStyle, TextStyleData } from '../model/card-grid.model';
 import { TextStyleEditorComponent } from '../text-style-editor/text-style-editor.component';
 
 @Component({
@@ -10,15 +12,30 @@ export class TextStyleEditorDialogComponent implements OnInit {
 
   @ViewChild(TextStyleEditorComponent) textStyleEditorComponent :TextStyleEditorComponent;
 
-  constructor() { }
+  textStyleData: TextStyleData;
+  
+  // get data from material dialog data & set to local reference of textStyleData
+  constructor(@Inject(MAT_DIALOG_DATA) data: TextStyleData) {
+    this.textStyleData = data;
+  }
 
   ngOnInit(): void {
   }
 
-  log(){
-    console.log("testing...");
-    
-    console.log(this.textStyleEditorComponent.getTextStyleValues());
+  // This method is invoked by cancel button
+  getTextStyleData(): TextStyleData {
+      return this.textStyleData;   
+  }
+
+  // This method invoked by save button 
+  getModifiedTextStyleData(): TextStyleData {
+    if (!this.textStyleEditorComponent) {
+      // Before loading TestStyleComponent
+      return this.textStyleData;
+    } else {
+      // After loading TextStyleEditoeComponent
+      return this.textStyleEditorComponent.getTextStyleData();
+    }
   }
 
 }

@@ -2,7 +2,17 @@
   <div class="alert alert-primary" role="alert">
     <h1>Welcome to custom website design</h1>
   </div>
-  <div>
+
+  <!-- Text Style Editor Demo -->
+  <div class="border border-primary p-2">
+    <div class="shadow-none p-3 mb-1 bg-light rounded text-center"><h2>Text Style Editor Demo</h2></div>
+    <p [style]="this.textStyleData.textStyle">{{this.textStyleData.text}}</p>
+    <button mat-button (click)="openDialog()">Open Text Editor</button>
+  </div>
+
+  <!-- Card Grid Builder Demo -->
+  <div class="border border-primary p-2 mt-1">
+    <div class="shadow-none p-3 mb-1 bg-light rounded text-center"><h2>Card Grid Builder Demo</h2></div>
     <mat-form-field appearance="fill">
       <mat-label>Select Grid</mat-label>
       <mat-select [(value)]="this.columnSelected" (selectionChange)="modifyGridValue()">
@@ -13,7 +23,7 @@
     </mat-form-field>
     <p>selected value : {{this.cardGridModel.column}}</p>
   </div>
-  <button mat-button (click)="openDialog()">Open Text Editor</button>
+
 </div>
 <app-card-grid-builder *ngIf="this.cardGridModel" [cardGridModel]="this.cardGridModel" [cardTemplate]="childTemplate">
 </app-card-grid-builder>

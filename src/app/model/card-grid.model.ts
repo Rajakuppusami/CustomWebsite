@@ -44,4 +44,13 @@ export interface TextStyle {
     fontWeight?: string;
     fontStyle?: string;
     textDecoration?: string;
+    color?: string;
+    fontFamily?: string;
+    fontSize?: string;
+    textAlign?: string;
+}
+
+export class TextStyleData {
+    text: string;
+    textStyle: TextStyle;
 }

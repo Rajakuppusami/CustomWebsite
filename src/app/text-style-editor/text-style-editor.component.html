@@ -3,7 +3,7 @@
         [style.textDecoration]="isDecoration ? 'underline' : 'none'" [style.fontWeight]="isBold ? 'bold' : 'normal'"
         [style.fontSize]="this.fontSizeSelected" [style.textAlign]="this.alignSelected"
         [style.color]="this.colorSelected">
-        {{text}}</p>
+        {{this._text}}</p>
 </div>
 
 <div class="container">
@@ -55,7 +55,7 @@
         <form class="w-100">
             <mat-form-field class="w-100">
                 <mat-label>Text</mat-label>
-                <input type="text" matInput placeholder="Heading" [(ngModel)]="this.text" name="heading">
+                <input type="text" matInput placeholder="Heading" [(ngModel)]="this._text" name="heading">
             </mat-form-field>
         </form>
     </div>
