@@ -11,6 +11,8 @@ import { CardStyleComponent } from './card-style/card-style.component';
 import { FormsModule } from '@angular/forms';
 import { TextStyleEditorComponent } from './text-style-editor/text-style-editor.component';
 import { TextStyleEditorDialogComponent } from './text-style-editor-dialog/text-style-editor-dialog.component';
+import { TextEditorDirective } from './text-editor.directive';
+import { TextStyleEditToolBarComponent } from './text-style-edit-tool-bar/text-style-edit-tool-bar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { TextStyleEditorDialogComponent } from './text-style-editor-dialog/text-
     CardGridBuilderComponent,
     CardStyleComponent,
     TextStyleEditorComponent,
-    TextStyleEditorDialogComponent
+    TextStyleEditorDialogComponent,
+    TextEditorDirective,
+    TextStyleEditToolBarComponent,
   ],
   imports: [
     BrowserModule,

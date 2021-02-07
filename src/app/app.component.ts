@@ -55,4 +55,9 @@ export class AppComponent implements OnInit {
     });
   }
 
+  assignTextStyleData(data: TextStyleData): void {
+    this.textStyleData = data;
+    console.log("assignTextStyleData => "+this.textStyleData);
+  }
+
 }
